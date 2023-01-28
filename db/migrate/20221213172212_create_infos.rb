@@ -5,7 +5,6 @@ class CreateInfos < ActiveRecord::Migration[6.1]
       t.string :location
       t.string :phone
       t.string :email 
-      t.string :about 
 
       t.timestamps
     end
