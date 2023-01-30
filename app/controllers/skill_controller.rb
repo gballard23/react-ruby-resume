@@ -2,7 +2,22 @@ class SkillController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
+    def index
+        skill = Skill.all
+        render json: skill 
+    end
     
+    def update
+        skill = find_skill
+        skill.update(skill_params)
+        render json: skill 
+    end
+
+    def create 
+        skill = Skill.create(skill_params);
+        render json: skill, status: :created
+    end
+
     private
     
     def find_skill 
