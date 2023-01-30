@@ -1,4 +1,7 @@
 class SocialController < ApplicationController
+    rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+
 
     def index 
         social = Social.all 
@@ -11,6 +14,11 @@ class SocialController < ApplicationController
         render json: social 
     end 
 
+    def create 
+        social = Social.create(social_params)
+        render json: social, status: :created  
+    end 
+
     private
     
     def find_social 
@@ -18,7 +26,7 @@ class SocialController < ApplicationController
     end
     
     def social_params 
-        params.permit(:name, :link)
+        params.permit(:name, :link, :info_id)
     end 
 
     def render_not_found_response

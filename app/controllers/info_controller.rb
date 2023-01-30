@@ -11,6 +11,7 @@ class InfoController < ApplicationController
     info = find_info
     info.update(info_params)
     end
+
     
     private 
 
