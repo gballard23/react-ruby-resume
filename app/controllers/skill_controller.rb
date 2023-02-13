@@ -4,7 +4,7 @@ class SkillController < ApplicationController
 
     def index
         skill = Skill.all
-        render json: skill 
+        render json: skill
     end
     
     def update

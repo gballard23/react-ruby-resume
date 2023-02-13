@@ -4,19 +4,20 @@ class InfoController < ApplicationController
 
     def index 
         info = Info.all 
-        render json: info 
+    
+        render json: info
     end 
 
     def update 
-    info = find_info
-    info.update(info_params)
+        info = find_info
+        info.update(info_params)
     end
 
     
     private 
 
     def find_info 
-    info.find(params[:id])
+        info.find(params[:id])
     end 
 
     def info_params 

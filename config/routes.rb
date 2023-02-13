@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :info, only: [ :index, :update ]
+  resources :info, only: [ :index, :update ] 
   resources :social, only: [ :index, :update, :create ]
   resources :skill, only: [ :index, :update, :create ]
   # Routing logic: fallback requests for React Router.
